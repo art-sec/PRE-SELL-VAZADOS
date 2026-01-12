@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmação de Idade - Telegram</title>
+    <title>Shadow Flix 🎬 - Acesso Exclusivo Limitado</title>
+    <link rel="shortcut icon" href="telegram.png" type="image/png">
+    <link rel="icon" href="telegram.png" type="image/png">
     <link rel="stylesheet" href="style.css">
     
     <!-- Meta Pixel Code -->
@@ -28,54 +30,114 @@
     <!-- End Meta Pixel Code -->
 </head>
 <body>
+    <!-- Partículas animadas de fundo -->
+    <div class="particles"></div>
+    
     <div class="container">
-        <div class="card">
-            <div class="header">
-                <div class="telegram-icon">
-                    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="telegram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#2AABEE"/>
-                                <stop offset="100%" style="stop-color:#229ED9"/>
-                            </linearGradient>
-                        </defs>
-                        <circle cx="120" cy="120" r="120" fill="url(#telegram-gradient)"/>
-                        <path fill="#fff" d="M81.229 128.772l14.237 39.406s1.78 3.687 3.686 3.687 30.255-29.492 30.255-29.492l31.525-60.89L81.737 118.6z"/>
-                        <path fill="#D2E5F1" d="M100.106 138.878l-2.733 29.046s-1.144 8.9 7.754 0 17.415-15.763 17.415-15.763"/>
-                        <path fill="#B5CFE4" d="M81.486 130.178l-17.8-5.467s-2.123-.868-1.467-2.838c.138-.414.4-.803 1.294-1.435 4.053-2.877 75.421-28.434 75.421-28.434s2.012-.573 3.245-.446c.526.05 1.057.182 1.553.548.36.267.64.593.853.96.232.408.394.87.489 1.346.134.669.166 1.353.094 2.028-.23 2.163-6.868 31.166-12.122 58.535-.275 1.42-.741 2.284-1.304 2.867-.562.584-1.212.972-2.37 1.09-2.325.235-5.15-1.57-8.054-3.642-4.365-3.12-19.655-14.011-25.534-19.672-.468-.45-.89-.907-1.265-1.372-.943-1.167-.674-2.753.174-3.882 3.82-5.097 16.697-17.04 27.02-26.49.624-.571.2-1.348-.526-.9-8.93 5.508-33.03 20.674-36.835 23.166-.735.482-1.525.873-2.355 1.165-3.418 1.2-7.31 1.408-11.137.446z"/>
-                    </svg>
-                </div>
-                <h1 class="title">Telegram</h1>
+        <div class="content">
+            <!-- Logo Shadow Flix -->
+            <div class="logo-container">
+                <img src="logo shadow flix.jpeg" alt="Shadow Flix Logo" id="shadowLogo" class="shadow-logo">
             </div>
             
-            <h2 class="subtitle">Confirmação de Idade</h2>
+            <!-- Título principal -->
+            <h1 class="main-title">
+                Shadow Flix <span class="emoji">🎬</span>
+            </h1>
             
-            <p class="description">
-                Este conteúdo é destinado exclusivamente para maiores de 18 anos. 
-                Por favor, confirme sua idade para continuar.
+            <!-- Subtítulo -->
+            <p class="subtitle">
+                Conteúdo Premium Exclusivo <span class="emoji">⚡</span>
             </p>
             
-            <div class="checkbox-container">
-                <label class="checkbox-label">
-                    <input type="checkbox" id="ageCheckbox" class="checkbox-input">
-                    <span class="checkbox-custom"></span>
-                    <span class="checkbox-text">Sou maior de 18 anos</span>
-                </label>
-                <div class="recaptcha-badge">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8 0C3.58 0 0 3.58 0 8C0 12.42 3.58 16 8 16C12.42 16 16 12.42 16 8C16 3.58 12.42 0 8 0ZM7 11.5L3.5 8L4.91 6.59L7 8.67L11.09 4.58L12.5 6L7 11.5Z" fill="#1E88E5"/>
-                    </svg>
-                    <span>reCAPTCHA</span>
+            <!-- Alerta de urgência -->
+            <div class="urgency-banner">
+                <span class="pulse-dot"></span>
+                <span class="urgency-text">⚠️ ESSE GRUPO VAI SAIR DO AR EM BREVE!</span>
+                <span class="pulse-dot"></span>
+            </div>
+            
+            <!-- Timer de contagem regressiva -->
+            <div class="countdown-timer">
+                <div class="timer-label">Tempo restante para acesso:</div>
+                <div class="timer-display">
+                    <div class="timer-unit">
+                        <span class="timer-value" id="hours">00</span>
+                        <span class="timer-text">Horas</span>
+                    </div>
+                    <span class="timer-separator">:</span>
+                    <div class="timer-unit">
+                        <span class="timer-value" id="minutes">00</span>
+                        <span class="timer-text">Minutos</span>
+                    </div>
+                    <span class="timer-separator">:</span>
+                    <div class="timer-unit">
+                        <span class="timer-value" id="seconds">00</span>
+                        <span class="timer-text">Segundos</span>
+                    </div>
                 </div>
             </div>
             
-            <button id="continueBtn" class="continue-btn" disabled>
-                Continuar
-            </button>
+            <!-- Contador de vagas -->
+            <div class="spots-counter">
+                <div class="spots-icon">🔥</div>
+                <div class="spots-info">
+                    <div class="spots-main">
+                        Apenas <span id="spotsRemaining" class="spots-number">47</span> vagas restantes!
+                    </div>
+                    <div class="spots-sub">De 500 vagas disponíveis hoje</div>
+                </div>
+            </div>
             
-            <p class="footer-text">
-                Marque a caixa e clique em continuar.
-            </p>
+            <!-- Botão CTA principal -->
+            <a href="https://t.me/supshadow_bot?start=start" id="ctaButton" class="cta-button">
+                <span class="emoji-left">🎬</span>
+                <span class="button-text">GARANTIR ACESSO AGORA</span>
+                <span class="emoji-right">🚀</span>
+            </a>
+            
+            <!-- Badge de acesso exclusivo -->
+            <div class="exclusive-badge">
+                <span class="dot">●</span>
+                <span class="badge-text">ACESSO EXCLUSIVO</span>
+                <span class="dot">●</span>
+            </div>
+            
+            <!-- Contador de membros -->
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="memberCount">12.847</span>
+                    <span class="stat-label">Pessoas Assistindo Agora</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" id="todayJoined">+453</span>
+                    <span class="stat-label">Entraram nas Últimas 2h</span>
+                </div>
+            </div>
+            
+            <!-- Notificações de entrada em tempo real -->
+            <div class="live-notifications" id="liveNotifications"></div>
+            
+            <!-- Benefícios -->
+            <div class="benefits">
+                <div class="benefit-item">
+                    <span class="check-icon">✓</span>
+                    <span>Conteúdo Premium Atualizado Diariamente</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="check-icon">✓</span>
+                    <span>Acesso Vitalício por Tempo Limitado</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="check-icon">✓</span>
+                    <span>Sem Anúncios ou Propagandas</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="check-icon">✓</span>
+                    <span>Comunidade Exclusiva de +12k Membros</span>
+                </div>
+            </div>
         </div>
     </div>
     

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Idade - Telegram</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        // SUBSTITUA 'SEU_PIXEL_ID' pelo seu ID do Meta Pixel
+        fbq('init', 'SEU_PIXEL_ID');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <div class="telegram-icon">
+                    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="telegram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2AABEE"/>
+                                <stop offset="100%" style="stop-color:#229ED9"/>
+                            </linearGradient>
+                        </defs>
+                        <circle cx="120" cy="120" r="120" fill="url(#telegram-gradient)"/>
+                        <path fill="#fff" d="M81.229 128.772l14.237 39.406s1.78 3.687 3.686 3.687 30.255-29.492 30.255-29.492l31.525-60.89L81.737 118.6z"/>
+                        <path fill="#D2E5F1" d="M100.106 138.878l-2.733 29.046s-1.144 8.9 7.754 0 17.415-15.763 17.415-15.763"/>
+                        <path fill="#B5CFE4" d="M81.486 130.178l-17.8-5.467s-2.123-.868-1.467-2.838c.138-.414.4-.803 1.294-1.435 4.053-2.877 75.421-28.434 75.421-28.434s2.012-.573 3.245-.446c.526.05 1.057.182 1.553.548.36.267.64.593.853.96.232.408.394.87.489 1.346.134.669.166 1.353.094 2.028-.23 2.163-6.868 31.166-12.122 58.535-.275 1.42-.741 2.284-1.304 2.867-.562.584-1.212.972-2.37 1.09-2.325.235-5.15-1.57-8.054-3.642-4.365-3.12-19.655-14.011-25.534-19.672-.468-.45-.89-.907-1.265-1.372-.943-1.167-.674-2.753.174-3.882 3.82-5.097 16.697-17.04 27.02-26.49.624-.571.2-1.348-.526-.9-8.93 5.508-33.03 20.674-36.835 23.166-.735.482-1.525.873-2.355 1.165-3.418 1.2-7.31 1.408-11.137.446z"/>
+                    </svg>
+                </div>
+                <h1 class="title">Telegram</h1>
+            </div>
+            
+            <h2 class="subtitle">Confirmação de Idade</h2>
+            
+            <p class="description">
+                Este conteúdo é destinado exclusivamente para maiores de 18 anos. 
+                Por favor, confirme sua idade para continuar.
+            </p>
+            
+            <div class="checkbox-container">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="ageCheckbox" class="checkbox-input">
+                    <span class="checkbox-custom"></span>
+                    <span class="checkbox-text">Sou maior de 18 anos</span>
+                </label>
+                <div class="recaptcha-badge">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 0C3.58 0 0 3.58 0 8C0 12.42 3.58 16 8 16C12.42 16 16 12.42 16 8C16 3.58 12.42 0 8 0ZM7 11.5L3.5 8L4.91 6.59L7 8.67L11.09 4.58L12.5 6L7 11.5Z" fill="#1E88E5"/>
+                    </svg>
+                    <span>reCAPTCHA</span>
+                </div>
+            </div>
+            
+            <button id="continueBtn" class="continue-btn" disabled>
+                Continuar
+            </button>
+            
+            <p class="footer-text">
+                Marque a caixa e clique em continuar.
+            </p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

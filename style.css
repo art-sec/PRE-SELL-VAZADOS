@@ -68,13 +68,22 @@ body::before {
     }
 }
 
+/* 
+⚡ OTIMIZAÇÃO DE PIXEL - "BOM" vs "CIRÚRGICO" ⚡
+Estrutura ajustada para aquecimento de pixel mais eficaz:
+- Conteúdo acima da dobra: bom para conversão direta
+- CTA posicionado mais abaixo: força mini-scroll consciente
+- Quem rola = interesse | Quem clica após rolar = ouro pro pixel
+*/
+
 .container {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
     z-index: 2;
     position: relative;
-    padding: 40px 0;
+    padding: 60px 0;
+    min-height: calc(100vh + 200px);
 }
 
 .content {
@@ -297,7 +306,8 @@ body::before {
     background: rgba(255, 69, 0, 0.1);
     border: 2px solid rgba(255, 69, 0, 0.5);
     border-radius: 12px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    margin-top: 30px;
     animation: spotsShake 3s ease-in-out infinite;
 }
 
@@ -542,7 +552,8 @@ body::before {
     background: rgba(255, 255, 255, 0.03);
     border-radius: 16px;
     border: 1px solid rgba(255, 215, 0, 0.1);
-    margin-bottom: 40px;
+    margin-bottom: 35px;
+    margin-top: 20px;
     backdrop-filter: blur(10px);
 }
 
@@ -579,7 +590,7 @@ body::before {
     flex-direction: column;
     gap: 15px;
     max-width: 400px;
-    margin: 0 auto;
+    margin: 0 auto 50px auto;
 }
 
 .benefit-item {
@@ -762,22 +773,5 @@ body::before {
     
     .notification {
         padding: 12px;
-    }
-}
-    width: 16px;
-    height: 16px;
-    top: 50%;
-    left: 50%;
-    margin-left: -8px;
-    margin-top: -8px;
-    border: 2px solid #ffffff;
-    border-radius: 50%;
-    border-top-color: transparent;
-    animation: spinner 0.6s linear infinite;
-}
-
-@keyframes spinner {
-    to {
-        transform: rotate(360deg);
     }
 }

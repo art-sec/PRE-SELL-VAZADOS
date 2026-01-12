@@ -349,16 +349,66 @@ ctaButton.addEventListener('click', function(e) {
     }, 1000);
 });
 
-// ==================== EFEITO PARALLAX SUAVE ====================
-let scrollPosition = 0;
+// ==================== TRACKING DE SCROLL PARA PIXEL ====================
+// Quem rola = interesse | Quem clica depois de rolar = ouro pro pixel
+let hasScrolled = false;
+let scrollDepth = 0;
+
 window.addEventListener('scroll', () => {
     scrollPosition = window.pageYOffset;
     const logoContainer = document.querySelector('.logo-container');
     if (logoContainer) {
         logoContainer.style.transform = `translateY(${scrollPosition * 0.1}px)`;
     }
+    
+    // Calcular profundidade do scroll
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const currentScrollDepth = Math.round((scrollTop / (documentHeight - windowHeight)) * 100);
+    
+    // Registrar primeiro scroll (interesse)
+    if (!hasScrolled && scrollTop > 50) {
+        hasScrolled = true;
+        trackCustomEvent('UserScrolled', {
+            message: 'Usuário demonstrou interesse ao rolar',
+            depth: currentScrollDepth
+        });
+        console.log('📊 Pixel: Usuário rolou = interesse registrado');
+    }
+    
+    // Tracking de profundidade de scroll
+    if (currentScrollDepth >= 25 && scrollDepth < 25) {
+        scrollDepth = 25;
+        trackCustomEvent('ScrollDepth', { depth: '25%' });
+    } else if (currentScrollDepth >= 50 && scrollDepth < 50) {
+        scrollDepth = 50;
+        trackCustomEvent('ScrollDepth', { depth: '50%' });
+    } else if (currentScrollDepth >= 75 && scrollDepth < 75) {
+        scrollDepth = 75;
+        trackCustomEvent('ScrollDepth', { depth: '75%' });
+    } else if (currentScrollDepth >= 90 && scrollDepth < 90) {
+        scrollDepth = 90;
+        trackCustomEvent('ScrollDepth', { depth: '90%' });
+    }
+});
+
+// Track clique no CTA - especialmente valioso se o usuário já rolou
+ctaButton.addEventListener('click', function() {
+    if (hasScrolled) {
+        trackCustomEvent('GoldClick', {
+            message: 'Ouro pro pixel: Usuário rolou E clicou',
+            scrollDepth: scrollDepth,
+            timeOnPage: timeOnPage
+        });
+        console.log('✨ Pixel: OURO - Usuário rolou e clicou!');
+    } else {
+        trackEvent('InitiateCheckout');
+        console.log('📊 Pixel: Clique direto sem scroll');
+    }
 });
 
 console.log('🎬 Shadow Flix - Pre-sell page loaded successfully!');
 console.log('⚠️ Lembre-se de substituir SEU_PIXEL_ID pelo seu ID do Meta Pixel');
+console.log('💎 Otimização de Pixel ativa: Tracking de scroll + cliques');
 
